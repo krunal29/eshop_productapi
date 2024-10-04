@@ -63,7 +63,7 @@ RegisterFluentMigration(builder);
 var app = builder.Build();
 
 #region Configure
-
+//Configure
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
@@ -286,3 +286,5 @@ static void RegisterFluentMigration(WebApplicationBuilder builder)
 }
 
 #endregion
+
+
