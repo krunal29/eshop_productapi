@@ -1,0 +1,24 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Business/eshop_productapi.Business/bin
+/Business/eshop_productapi.Business/obj
+/Business/eshop_productapi.Interfaces/bin
+/Business/eshop_productapi.Interfaces/obj
+/Business/eshop_productapi.Mapper/bin
+/Business/eshop_productapi.Mapper/obj
+/Business/eshop_productapi.Repositories/bin
+/Business/eshop_productapi.Repositories/obj
+/Business/eshop_productapi.Services/bin
+/Business/eshop_productapi.Services/obj
+/Business/eshop_productapi.UoW/bin
+/Business/eshop_productapi.UoW/obj
+/Database/eshop_productapi.Domain/bin
+/Database/eshop_productapi.Domain/obj
+/Database/eshop_productapi.Migrations/bin
+/Database/eshop_productapi.Migrations/obj
+/eshop_productapi.API/bin
+/eshop_productapi.API/obj
+/eshop_productapi.API/uploads/RequestLog/2024_04_23
