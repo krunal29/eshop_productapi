@@ -32,9 +32,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 
-
 var builder = WebApplication.CreateBuilder(args);
-
 
 #region  Configure Services 
 
