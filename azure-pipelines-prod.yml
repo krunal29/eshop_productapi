@@ -1,0 +1,31 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  branches:
+    include:
+      - develop
+          
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+    - task: DownloadBuildArtifacts@1
+      inputs:
+        buildType: 'specific'
+        project: '43263610-2db0-42bc-a93b-94ccaa20513a'
+        pipeline: '9'
+        buildVersionToDownload: 'latest'
+        downloadType: 'single'
+        artifactName: 'drop'
+        downloadPath: '$(Build.ArtifactsDirectory)'
+    
+    - task: AzureWebApp@1
+      inputs:
+        azureSubscription: 'Azure subscription 1 (48d8776c-9610-4d04-8001-f55fe)'
+        appType: 'webApp'
+        appName: 'habiband'
+        package: '$(Build.ArtifactsDirectory)/**/*.zip'
+        deploymentMethod: 'auto'
