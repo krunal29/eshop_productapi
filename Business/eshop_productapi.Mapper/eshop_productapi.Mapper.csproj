@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Database\eshop_productapi.Domain\eshop_productapi.Domain.csproj" />
+    <ProjectReference Include="..\eshop_productapi.Business\eshop_productapi.Business.csproj" />
+  </ItemGroup>
+
+</Project>
