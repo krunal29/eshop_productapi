@@ -48,20 +48,23 @@ stages:
         publishWebProjects: false
         arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
         zipAfterPublish: true
-    - task: SonarQubePrepare@6
-      inputs:
-        SonarQube: 'SonarQube_Pool'
-        scannerMode: 'MSBuild'
-        projectKey: 'eshop_productapi'
-        projectName: 'eshop_productapi'
 
-    - task: SonarQubeAnalyze@6
+    - task: SonarCloudPrepare@2
+      inputs:
+        SonarCloud: 'sonar_cloud'
+        organization: 'krunal29-1'
+        scannerMode: 'CLI'
+        configMode: 'manual'
+        cliProjectKey: 'krunal29_SonarTestNew'
+        cliProjectName: 'SonarTestNew'
+        cliSources: '.'
+    - task: SonarCloudAnalyze@2
       inputs:
         jdkversion: 'JAVA_HOME_17_X64'
-    - task: SonarQubePublish@6
-      inputs:
-        pollingTimeoutSec: '300'     
 
+    - task: SonarCloudPublish@2
+      inputs:
+        pollingTimeoutSec: '300'
     - task: PublishBuildArtifacts@1
       displayName: 'Publish artifacts'
       inputs:
