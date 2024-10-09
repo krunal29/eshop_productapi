@@ -75,7 +75,7 @@ stages:
       inputs:
         gitHubConnection: 'krunal29'
         repositoryName: '$(Build.Repository.Name)'
-        id: '$(System.PullRequest.PullRequestNumber)'
-        comment: '$(cat $(Build.ArtifactStagingDirectory)/SonarQubeBuildSummary.md)' 
+        #id: '$(System.PullRequest.PullRequestNumber)'
+        #comment: '$(cat $(Build.ArtifactStagingDirectory)/SonarQubeBuildSummary.md)' 
 
         
