@@ -55,8 +55,8 @@ stages:
         organization: 'krunal29-1'
         scannerMode: 'CLI'
         configMode: 'manual'
-        cliProjectKey: 'krunal29_SonarTestNew'
-        cliProjectName: 'SonarTestNew'
+        cliProjectKey: 'krunal29_eshop_productapi'
+        cliProjectName: 'eshop_productapi'
         cliSources: '.'
     - task: SonarCloudAnalyze@2
       inputs:
