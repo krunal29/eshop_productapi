@@ -63,7 +63,7 @@ stages:
           # Put one key=value per line, example:
           # sonar.exclusions=**/*.bin
           sonar.pullrequest.key=$(System.PullRequest.PullRequestId)
-          sonar.pullrequest.branch=$(Build.SourceBranchName)
+          sonar.pullrequest.branch=$(System.PullRequest.SourceBranch)
           sonar.pullrequest.base=$(System.PullRequest.TargetBranch)
           sonar.pullrequest.github.summary_comment=true
     - task: SonarCloudAnalyze@2
