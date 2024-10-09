@@ -29,6 +29,7 @@ namespace eshop_productapi.API.Controllers
         {
             return await GetDataWithMessage(async () =>
             {
+                var a = "STATIC STRING";
                 var result = (await _ProductService.GetAllAsync());
                 return Response(result, string.Empty);
             });
