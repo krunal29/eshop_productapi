@@ -11,9 +11,10 @@ stages:
   jobs:
   - job: Build
     pool:
+     #name: 'SelfHosted'
       vmImage: 'ubuntu-latest'
     
-    steps:
+    steps:    
     - task: UseDotNet@2
       inputs:
         packageType: 'sdk'
@@ -48,12 +49,33 @@ stages:
         arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
         zipAfterPublish: true
 
+    - task: SonarCloudPrepare@2
+      inputs:
+        SonarCloud: 'sonar_cloud'
+        organization: 'krunal29-1'
+        scannerMode: 'CLI'
+        configMode: 'manual'
+        cliProjectKey: 'krunal29_eshop_productapi'
+        cliProjectName: 'eshop_productapi'
+        cliSources: '.'
+    - task: SonarCloudAnalyze@2
+      inputs:
+        jdkversion: 'JAVA_HOME_17_X64'
+
+    - task: SonarCloudPublish@2
+      inputs:
+        pollingTimeoutSec: '300'
     - task: PublishBuildArtifacts@1
       displayName: 'Publish artifacts'
       inputs:
         pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
         artifactName: 'drop'
         publishLocation: 'Container'
-
+    - task: GitHubComment@0
+      inputs:
+        gitHubConnection: 'krunal29'
+        repositoryName: '$(Build.Repository.Name)'      
+        #id: '$(System.PullRequest.PullRequestNumber)'
+        comment: '$(Build.ArtifactStagingDirectory)/.sqAnalysis/SonarQubeBuildSummary.md' 
 
         
