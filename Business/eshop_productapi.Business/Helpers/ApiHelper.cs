@@ -16,6 +16,7 @@ namespace eshop_productapi.Business.Helpers
             var responseDetail = new ResponseDetail<T>();
             try
             {
+                var password = "Admin@123";
                 var baseUrl = new AppSettings().ApiUrl + url;
                 if (httpMethod == HttpMethod.Get || httpMethod == HttpMethod.Delete)
                 {
@@ -25,6 +26,7 @@ namespace eshop_productapi.Business.Helpers
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiToken);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", password);
                 client.DefaultRequestHeaders.AcceptLanguage.Add(new StringWithQualityHeaderValue(culture));
                 client.Timeout = TimeSpan.FromMinutes(10);
 
