@@ -74,8 +74,8 @@ stages:
     - task: GitHubComment@0
       inputs:
         gitHubConnection: 'krunal29'
-        repositoryName: '$(Build.Repository.Name)'
+        repositoryName: '$(Build.Repository.Name)'      
         #id: '$(System.PullRequest.PullRequestNumber)'
-        #comment: '$(cat $(Build.ArtifactStagingDirectory)/SonarQubeBuildSummary.md)' 
+        comment: '$(Build.ArtifactStagingDirectory)/.sqAnalysis/SonarQubeBuildSummary.md' 
 
         
