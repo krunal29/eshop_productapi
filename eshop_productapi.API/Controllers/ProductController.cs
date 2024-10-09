@@ -97,6 +97,9 @@ namespace eshop_productapi.API.Controllers
 
                 case "A": 
 
+
+
+
                 default:
                     Console.WriteLine("Invalid grade letter!");
                     break;
