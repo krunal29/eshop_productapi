@@ -62,9 +62,10 @@ stages:
           # Additional properties that will be passed to the scanner, 
           # Put one key=value per line, example:
           # sonar.exclusions=**/*.bin
-          sonar.pullrequest.key=$(System.PullRequest.PullRequestId)
+          sonar.pullrequest.provider=GitHub
+          # sonar.pullrequest.key=$(System.PullRequest.PullRequestId)
           sonar.pullrequest.branch=$(System.PullRequest.SourceBranch)
-          sonar.pullrequest.base=$(System.PullRequest.TargetBranch)
+          sonar.pullrequest.base=develop
           sonar.pullrequest.github.summary_comment=true
     - task: SonarCloudAnalyze@2
       inputs:
