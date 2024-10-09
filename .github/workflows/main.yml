@@ -6,7 +6,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  build:
+  build: 
     name: Build and analyze
     runs-on: windows-latest
     steps:
