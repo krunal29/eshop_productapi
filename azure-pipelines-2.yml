@@ -65,7 +65,7 @@ stages:
           sonar.pullrequest.key=$(System.PullRequest.PullRequestId)
           sonar.pullrequest.branch=$(Build.SourceBranchName)
           sonar.pullrequest.base=$(System.PullRequest.TargetBranch)
-          sonar.pullrequest.github.summary_comment=tru
+          sonar.pullrequest.github.summary_comment=true
     - task: SonarCloudAnalyze@2
       inputs:
         jdkversion: 'JAVA_HOME_17_X64'
