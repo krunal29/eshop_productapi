@@ -87,5 +87,60 @@ namespace eshop_productapi.API.Controllers
                 return Response(new BooleanResponseModel { Value = flag }, _localizer["ReordNotDeleteSucess"].Value.ToString(), DropMessageType.Error);
             });
         }
+
+        [HttpGet]
+        public async Task GetProducts(string gradeLetter)
+        {
+            switch (gradeLetter)
+            {
+                case "A+":
+
+                case "A": 
+
+
+
+
+                default:
+                    Console.WriteLine("Invalid grade letter!");
+                    break;
+
+
+
+
+
+
+
+
+
+
+                case "A-":
+                    Console.WriteLine("Excellent");
+                    break;
+                case "B+":
+
+
+
+
+
+
+
+
+
+
+                case "B":
+                    Console.WriteLine("Very Good");
+                    break;
+                case "B-":
+                case "C+":
+                    Console.WriteLine("Good");
+                    break;
+                case "C":
+                    Console.WriteLine("Pass");
+                    break;
+                case "F":
+                    Console.WriteLine("Fail");
+                    break;                
+            }
+        }
     }
 }
