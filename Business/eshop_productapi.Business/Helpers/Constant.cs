@@ -10,6 +10,7 @@ namespace eshop_productapi.Business.Helpers
 
         public const string Password = "Admin@123";
 
+
         #region MemoryCatch
 
         public const string Memory_UserRoles = "Memory_UserRoles";
