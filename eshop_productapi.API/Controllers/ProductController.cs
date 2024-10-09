@@ -104,10 +104,29 @@ namespace eshop_productapi.API.Controllers
                     Console.WriteLine("Invalid grade letter!");
                     break;
 
+
+
+
+
+
+
+
+
+
                 case "A-":
                     Console.WriteLine("Excellent");
                     break;
                 case "B+":
+
+
+
+
+
+
+
+
+
+
                 case "B":
                     Console.WriteLine("Very Good");
                     break;
