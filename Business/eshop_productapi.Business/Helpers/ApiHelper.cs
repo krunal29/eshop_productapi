@@ -15,7 +15,6 @@ namespace eshop_productapi.Business.Helpers
         {
 
             var password = "";
-
             var responseDetail = new ResponseDetail<T>();
             try
             {
