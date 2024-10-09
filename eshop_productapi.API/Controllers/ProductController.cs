@@ -23,6 +23,7 @@ namespace eshop_productapi.API.Controllers
             _localizer = localizer;
         }
 
+
         [HttpGet]
         [Route("GetAll")]
         public async Task<object> GetAll()
