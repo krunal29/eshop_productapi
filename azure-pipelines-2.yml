@@ -63,9 +63,9 @@ stages:
       inputs:
         jdkversion: 'JAVA_HOME_17_X64'
 
-    - task: SonarCloudPublish@2
-      inputs:
-        pollingTimeoutSec: '300'
+    # - task: SonarCloudPublish@2
+    #   inputs:
+    #     pollingTimeoutSec: '300'
     - task: PublishBuildArtifacts@1
       displayName: 'Publish artifacts'
       inputs:
