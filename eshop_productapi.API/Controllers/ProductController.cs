@@ -94,10 +94,13 @@ namespace eshop_productapi.API.Controllers
             switch (gradeLetter)
             {
                 case "A+":
+
                 case "A":
+
                 default:
                     Console.WriteLine("Invalid grade letter!");
                     break;
+
                 case "A-":
                     Console.WriteLine("Excellent");
                     break;
