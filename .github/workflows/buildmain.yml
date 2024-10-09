@@ -40,4 +40,4 @@ jobs:
         with:
           name: dotnet-build
           path: |
-              ./eshop_productapi.API/bin/Release/  # Specify the correct build folder
+              ./bin/Release/  # Specify the correct build folder
