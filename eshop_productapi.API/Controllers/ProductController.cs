@@ -105,6 +105,8 @@ namespace eshop_productapi.API.Controllers
         [HttpGet]
         public async Task GetProducts(string gradeLetter)
         {
+            string AVCHHDD = null;
+
             switch (gradeLetter)
             {
                 case "A+":
