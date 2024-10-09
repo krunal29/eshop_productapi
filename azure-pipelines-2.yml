@@ -71,6 +71,11 @@ stages:
         pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
         artifactName: 'drop'
         publishLocation: 'Container'
-
+    - task: GitHubComment@0
+      inputs:
+        gitHubConnection: 'krunal29'
+        repositoryName: '$(Build.Repository.Name)'
+        id: '$(System.PullRequest.PullRequestNumber)'
+        comment: '$(cat $(Build.ArtifactStagingDirectory)/SonarQubeBuildSummary.md)'
 
         
