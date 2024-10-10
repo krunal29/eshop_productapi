@@ -8,7 +8,7 @@ namespace eshop_productapi.Business.Helpers
         public const string DateTimeFormat = "dd-MM-yyyy HH:mm";
         public const int AdminId = 1;
 
-        public const string Password = "Admin@123";
+        
 
 
         #region MemoryCatch
