@@ -26,13 +26,13 @@ stages:
         command: 'restore'
         projects: '$(solution)'
 
-    # - task: SonarCloudPrepare@2
-    #   inputs:
-    #     SonarCloud: 'SonarCloud'
-    #     organization: 'krunal29-1'
-    #     scannerMode: 'MSBuild'
-    #     projectKey: 'krunal29_eshop_productapi'
-    #     projectName: 'eshop_productapi'
+    - task: SonarCloudPrepare@2
+      inputs:
+        SonarCloud: 'SonarCloud'
+        organization: 'krunal29-1'
+        scannerMode: 'MSBuild'
+        projectKey: 'krunal29_eshop_productapi'
+        projectName: 'eshop_productapi'
         
     - task: DotNetCoreCLI@2
       displayName: 'Build the project'
@@ -66,13 +66,13 @@ stages:
         
     
       
-    # - task: SonarCloudAnalyze@2
-    #   inputs:
-    #     jdkversion: 'JAVA_HOME_17_X64'
+    - task: SonarCloudAnalyze@2
+      inputs:
+        jdkversion: 'JAVA_HOME_17_X64'
 
-    # - task: SonarCloudPublish@2
-    #   inputs:
-    #     pollingTimeoutSec: '300'
+    - task: SonarCloudPublish@2
+      inputs:
+        pollingTimeoutSec: '300'
    # - task: GitHubComment@0
       #inputs:
         #gitHubConnection: 'krunal29'
