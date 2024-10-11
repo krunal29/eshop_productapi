@@ -13,8 +13,6 @@ namespace eshop_productapi.Business.Helpers
     {
         public static async Task<ResponseDetail<T>> SendApiRequest<T>(object data, string url, HttpMethod httpMethod, string apiToken, string culture)
         {
-
-            var password = "";
             var responseDetail = new ResponseDetail<T>();
             try
             {
