@@ -24,7 +24,6 @@ namespace eshop_productapi.API.Controllers
         }
          
 
-
         [HttpGet]
         [Route("GetAll")]
         public async Task<object> GetAll()
@@ -35,6 +34,7 @@ namespace eshop_productapi.API.Controllers
                 var result = (await _ProductService.GetAllAsync());
                 return Response(result, string.Empty);
             });
+
         }
 
         [HttpGet]
