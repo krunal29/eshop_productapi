@@ -22,6 +22,7 @@ namespace eshop_productapi.API.Controllers
             _ProductService = ProductService;
             _localizer = localizer;
         }
+         
 
 
         [HttpGet]
