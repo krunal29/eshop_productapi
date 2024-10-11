@@ -22,7 +22,7 @@ namespace eshop_productapi.API.Controllers
             _ProductService = ProductService;
             _localizer = localizer;
         }
-         
+          
 
         [HttpGet]
         [Route("GetAll")]
@@ -104,13 +104,7 @@ namespace eshop_productapi.API.Controllers
                     return Response(new BooleanResponseModel { Value = flag }, _localizer["RecordDeleteSuccess"].Value.ToString());
                 return Response(new BooleanResponseModel { Value = flag }, _localizer["ReordNotDeleteSucess"].Value.ToString(), DropMessageType.Error);
             });
-            return await GetDataWithMessage(async () =>
-            {
-                var flag = await _ProductService.DeleteAsync(id);
-                if (flag)
-                    return Response(new BooleanResponseModel { Value = flag }, _localizer["RecordDeleteSuccess"].Value.ToString());
-                return Response(new BooleanResponseModel { Value = flag }, _localizer["ReordNotDeleteSucess"].Value.ToString(), DropMessageType.Error);
-            });
+         
         }
     }
 }
