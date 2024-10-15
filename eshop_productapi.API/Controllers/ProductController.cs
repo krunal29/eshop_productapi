@@ -106,9 +106,5 @@ namespace eshop_productapi.API.Controllers
             });
          
         }
-
-        public void GetProduct()
-        { 
-        }
     }
 }
