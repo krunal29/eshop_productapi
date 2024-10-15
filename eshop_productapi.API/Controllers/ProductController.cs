@@ -137,6 +137,7 @@ namespace eshop_productapi.API.Controllers
                     Console.WriteLine("Fail");
                     break;                
             }
+
         }
     }
 }
