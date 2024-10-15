@@ -26,6 +26,14 @@ stages:
         command: 'restore'
         projects: '$(solution)'
 
+    - task: SonarCloudPrepare@2
+      inputs:
+        SonarCloud: 'SonarCloud'
+        organization: 'krunal29-1'
+        scannerMode: 'MSBuild'
+        projectKey: 'krunal29_eshop_productapi'
+        projectName: 'eshop_productapi'
+        
     - task: DotNetCoreCLI@2
       displayName: 'Build the project'
       inputs:
@@ -49,15 +57,15 @@ stages:
         arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
         zipAfterPublish: true
 
-    - task: SonarCloudPrepare@2
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish artifacts'
       inputs:
-        SonarCloud: 'sonar_cloud'
-        organization: 'krunal29-1'
-        scannerMode: 'CLI'
-        configMode: 'manual'
-        cliProjectKey: 'krunal29_eshop_productapi'
-        cliProjectName: 'eshop_productapi'
-        cliSources: '.'
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
+        artifactName: 'drop'
+        publishLocation: 'Container'
+        
+    
+      
     - task: SonarCloudAnalyze@2
       inputs:
         jdkversion: 'JAVA_HOME_17_X64'
@@ -65,17 +73,11 @@ stages:
     - task: SonarCloudPublish@2
       inputs:
         pollingTimeoutSec: '300'
-    - task: PublishBuildArtifacts@1
-      displayName: 'Publish artifacts'
-      inputs:
-        pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
-        artifactName: 'drop'
-        publishLocation: 'Container'
-    - task: GitHubComment@0
-      inputs:
-        gitHubConnection: 'krunal29'
-        repositoryName: '$(Build.Repository.Name)'      
+   # - task: GitHubComment@0
+      #inputs:
+        #gitHubConnection: 'krunal29'
+        #repositoryName: '$(Build.Repository.Name)'      
         #id: '$(System.PullRequest.PullRequestNumber)'
-        comment: '$(Build.ArtifactStagingDirectory)/.sqAnalysis/SonarQubeBuildSummary.md' 
+        #comment: '$(Build.ArtifactStagingDirectory)/.sqAnalysis/SonarQubeBuildSummary.md' 
 
         

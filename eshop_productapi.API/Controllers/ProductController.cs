@@ -106,5 +106,60 @@ namespace eshop_productapi.API.Controllers
             });
          
         }
+
+        [HttpGet]
+        public async Task GetProducts(string gradeLetter)
+        {
+            switch (gradeLetter)
+            {
+                case "A+":
+
+                case "A": 
+
+
+
+
+                default:
+                    Console.WriteLine("Invalid grade letter!");
+                    break;
+
+
+
+
+
+
+
+
+
+
+                case "A-":
+                    Console.WriteLine("Excellent");
+                    break;
+                case "B+":
+
+
+
+
+
+
+
+
+
+
+                case "B":
+                    Console.WriteLine("Very Good");
+                    break;
+                case "B-":
+                case "C+":
+                    Console.WriteLine("Good");
+                    break;
+                case "C":
+                    Console.WriteLine("Pass");
+                    break;
+                case "F":
+                    Console.WriteLine("Fail");
+                    break;                
+            }
+        }
     }
 }
