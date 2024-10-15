@@ -13,6 +13,11 @@ namespace eshop_productapi.Migrations.DbMigrations
             runner.ListMigrations();
             //runner.MigrateUp(20220609014400);
 
+
+
+
+
+            
             return app;
         }
     }

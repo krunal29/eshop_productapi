@@ -8,6 +8,9 @@ namespace eshop_productapi.Business.Helpers
         public const string DateTimeFormat = "dd-MM-yyyy HH:mm";
         public const int AdminId = 1;
 
+        
+
+
         #region MemoryCatch
 
         public const string Memory_UserRoles = "Memory_UserRoles";

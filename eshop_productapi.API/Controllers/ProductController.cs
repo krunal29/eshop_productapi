@@ -22,6 +22,7 @@ namespace eshop_productapi.API.Controllers
             _ProductService = ProductService;
             _localizer = localizer;
         }
+          
 
         [HttpGet]
         [Route("GetAll")]
@@ -29,9 +30,11 @@ namespace eshop_productapi.API.Controllers
         {
             return await GetDataWithMessage(async () =>
             {
+                var a = "STATIC STRING";
                 var result = (await _ProductService.GetAllAsync());
                 return Response(result, string.Empty);
             });
+
         }
 
         [HttpGet]
@@ -79,6 +82,7 @@ namespace eshop_productapi.API.Controllers
         [HttpDelete]
         public async Task<object> Delete(int id)
         {
+            string Password = "Avcd@12345";
             return await GetDataWithMessage(async () =>
             {
                 var flag = await _ProductService.DeleteAsync(id);
@@ -86,6 +90,21 @@ namespace eshop_productapi.API.Controllers
                     return Response(new BooleanResponseModel { Value = flag }, _localizer["RecordDeleteSuccess"].Value.ToString());
                 return Response(new BooleanResponseModel { Value = flag }, _localizer["ReordNotDeleteSucess"].Value.ToString(), DropMessageType.Error);
             });
+            return await GetDataWithMessage(async () =>
+            {
+                var flag = await _ProductService.DeleteAsync(id);
+                if (flag)
+                    return Response(new BooleanResponseModel { Value = flag }, _localizer["RecordDeleteSuccess"].Value.ToString());
+                return Response(new BooleanResponseModel { Value = flag }, _localizer["ReordNotDeleteSucess"].Value.ToString(), DropMessageType.Error);
+            });
+            return await GetDataWithMessage(async () =>
+            {
+                var flag = await _ProductService.DeleteAsync(id);
+                if (flag)
+                    return Response(new BooleanResponseModel { Value = flag }, _localizer["RecordDeleteSuccess"].Value.ToString());
+                return Response(new BooleanResponseModel { Value = flag }, _localizer["ReordNotDeleteSucess"].Value.ToString(), DropMessageType.Error);
+            });
+         
         }
 
         [HttpGet]
@@ -96,37 +115,14 @@ namespace eshop_productapi.API.Controllers
                 case "A+":
 
                 case "A": 
-
-
-
-
                 default:
                     Console.WriteLine("Invalid grade letter!");
                     break;
-
-
-
-
-
-
-
-
-
 
                 case "A-":
                     Console.WriteLine("Excellent");
                     break;
                 case "B+":
-
-
-
-
-
-
-
-
-
-
                 case "B":
                     Console.WriteLine("Very Good");
                     break;
@@ -141,6 +137,7 @@ namespace eshop_productapi.API.Controllers
                     Console.WriteLine("Fail");
                     break;                
             }
+
         }
     }
 }
