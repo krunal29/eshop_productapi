@@ -89,5 +89,9 @@ namespace eshop_productapi.API.Controllers
                 return Response(new BooleanResponseModel { Value = flag }, _localizer["ReordNotDeleteSucess"].Value.ToString(), DropMessageType.Error);
             });
         }
+
+        public void GetProduct()
+        { 
+        }
     }
 }
