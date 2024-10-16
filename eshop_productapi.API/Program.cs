@@ -33,13 +33,19 @@ using System.Reflection;
 using System.Text;
 
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 
 #region  Configure Services 
 
 builder.Services.AddMvc();
-builder.Services.AddDbContext<eshop_productapiContext>(options => options.UseLazyLoadingProxies(false).UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+builder.Services.AddDbContext<eshop_productapiContext>(options =>
+    options.UseInMemoryDatabase("eShopProduct"));
+
+//builder.Services.AddDbContext<eshop_productapiContext>(options => options.UseLazyLoadingProxies(false).UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     options.Password.RequireDigit = false;
@@ -212,7 +218,7 @@ static void RegisterServices(IServiceCollection services)
 {
     services.AddScoped<IProductService, ProductService>();
 
-services.AddScoped<IProductImageService, ProductImageService>();
+    services.AddScoped<IProductImageService, ProductImageService>();
 
 }
 
@@ -220,7 +226,7 @@ static void RegisterRepositories(IServiceCollection services)
 {
     services.AddScoped<IProductRepository, ProductRepository>();
 
-services.AddScoped<IProductImageRepository, ProductImageRepository>();
+    services.AddScoped<IProductImageRepository, ProductImageRepository>();
 }
 
 static void RegisterBackgroundServices(IServiceCollection services)
